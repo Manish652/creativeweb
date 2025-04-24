@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+/* Custom animations in index.css */
+
+/* Spin Slow */
+@keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Ping Once */
+  @keyframes ping-once {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  /* Wiggle */
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  
+  /* Float */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Glitch */
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+  
+  /* Flicker */
+  @keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 100% { opacity: 0.99; }
+    20%, 21.999%, 63%, 63.999% { opacity: 0.4; }
+  }
+  
+  /* Custom animation classes */
+  .animate-spin-slow {
+    animation: spin-slow 5s linear infinite;
+  }
+  
+  .animate-ping-once {
+    animation: ping-once 1s cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glitch {
+    animation: glitch 1s infinite;
+  }
+  
+  .animate-flicker {
+    animation: flicker 3s infinite;
+  }
+  
