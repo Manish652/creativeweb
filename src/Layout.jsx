@@ -4,6 +4,7 @@ import Footer from "./components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import BackGround from "./BackGround";
 import CustomCursor from "./components/CustomCursor";
+import CursorSelector from "./components/CursorSelector";
 
 function Layout() {
   const [bgImageUrl, setBgImageUrl] = useState("https://w.wallhaven.cc/full/vq/wallhaven-vq7698.jpg");
@@ -11,6 +12,20 @@ function Layout() {
   const [notification, setNotification] = useState({ show: false, message: "", type: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState(bgImageUrl);
+
+  // New state for selected cursor style
+  const [selectedCursorStyle, setSelectedCursorStyle] = useState({
+    variant: "dot-ring",
+    color: "#f0e68c",
+    size: "lg",
+    blendMode: "difference",
+    trailLength: 6,
+    hoverScale: 2.5,
+    transitionSpeed: 0.15,
+  });
+
+  // New state to toggle cursor selector visibility
+  const [isCursorSelectorVisible, setIsCursorSelectorVisible] = useState(false);
 
   // Handle image URL input change
   const handleInputChange = (event) => {
@@ -63,14 +78,36 @@ function Layout() {
   return (
     <>
 <CustomCursor
-  variant="trail"
-  color="#f0e68c"
-  size="sm"
-  blendMode="difference"
-  trailLength={6}
-  hoverScale={2.5}
-  transitionSpeed={0.15}
+  variant={selectedCursorStyle.variant}
+  color={selectedCursorStyle.color}
+  size={selectedCursorStyle.size}
+  blendMode={selectedCursorStyle.blendMode}
+  trailLength={selectedCursorStyle.trailLength}
+  hoverScale={selectedCursorStyle.hoverScale}
+  transitionSpeed={selectedCursorStyle.transitionSpeed}
 />
+
+{/* Button to toggle cursor selector */}
+<button
+  onClick={() => setIsCursorSelectorVisible(!isCursorSelectorVisible)}
+  className="fixed top-20 right-10 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white p-3 rounded-full shadow-xl hover:scale-110 active:scale-90 transition-transform duration-200 ease-in-out z-30 flex items-center justify-center"
+  aria-label="Toggle cursor style selector"
+  type="button"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</button>
+
+{isCursorSelectorVisible && (
+  <CursorSelector
+    selectedStyleId={selectedCursorStyle.id}
+    onSelect={(style) => {
+      setSelectedCursorStyle(style);
+      setIsCursorSelectorVisible(false);
+    }}
+  />
+)}
 
 
 

@@ -37,7 +37,6 @@ const router = createBrowserRouter(
       <Route path='about' element={<About/>}/>
       <Route path='contact' element={<Contact/>}/>
       <Route path='feature' element={<Features/>}/>
-      
     </Route>
   )
 )
@@ -46,6 +45,5 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}/>
-  
   </StrictMode>,
 )

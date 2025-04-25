@@ -46,8 +46,10 @@ export default function AnimatedButton({
       <div 
         className="absolute inset-0 z-0" 
         style={{ 
-          background: `linear-gradient(${animationState}deg, ${colors.join(', ')})`,
+          backgroundImage: `linear-gradient(${animationState}deg, ${colors.join(', ')})`,
           backgroundSize: '300% 300%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }} 
       />
       
@@ -85,18 +87,20 @@ export default function AnimatedButton({
       {/* Add a pseudo-3D effect with shadow */}
       <div className="absolute inset-0 rounded-lg shadow-inner z-0" />
       
-      <style jsx>{`
-        @keyframes float-up {
-          0% {
-            transform: translateY(0) scale(0);
-            opacity: 0.7;
+      <style>
+        {`
+          @keyframes float-up {
+            0% {
+              transform: translateY(0) scale(0);
+              opacity: 0.7;
+            }
+            100% {
+              transform: translateY(-50px) scale(1);
+              opacity: 0;
+            }
           }
-          100% {
-            transform: translateY(-50px) scale(1);
-            opacity: 0;
-          }
-        }
-      `}</style>
+        `}
+      </style>
     </button>
   );
 }

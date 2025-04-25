@@ -13,6 +13,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
     "@tailwindcss/vite": "^4.1.4",
+    "fast-average-color": "^9.5.0",
     "framer-motion": "^12.8.0",
     "lucide-react": "^0.501.0",
     "react": "^18.3.1",
