@@ -57,7 +57,7 @@ export default function AboutSection() {
               Founded in 2015, we began with a simple mission: to make finding your dream home an enjoyable experience.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-white mb-6">
-              We've helped thousands of clients find homes that perfectly match their lifestyle, preferences, and budget.
+              We've helped to thousands of clients find <span> jio </span> homes that perfectly match their lifestyle, preferences, and budget.
             </p>
             
               <AnimatedButton
