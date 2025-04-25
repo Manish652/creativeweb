@@ -14,6 +14,8 @@ export default function Header() {
                             className="mr-3 h-12 animate-spin-slow "
                             alt="Logo"
                         />
+                        <p className="text-2xl">Glass <span className="text-blue-400">UI</span></p> 
+
                     </Link>
 
                     {/* Hamburger Icon */}
@@ -73,19 +75,19 @@ export default function Header() {
                         id="mobile-menu-2"
                     >
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            {["/", "/about", "/contact","/feature"].map((path, index) => (
+                            {["/", "/about", "/contact","/feature","/gallery"].map((path, index) => (
                                 <li key={index}>
                                     <NavLink
                                         to={path}
                                         className={({ isActive }) =>
                                             `block py-2 pr-4 pl-3 duration-200 ${
                                                 isActive
-                                                    ? "text-red-600"
+                                                    ? "text-blue-500"
                                                     : "text-white"
-                                            } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0`
+                                            } border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
                                         }
                                     >
-                                        <span className="text-2xl">
+                                        <span className="text-2xl text-shadow-lg/20">
                                             {path === "/"
                                                 ? "Home"
                                                 : path.slice(1).charAt(0).toUpperCase() +

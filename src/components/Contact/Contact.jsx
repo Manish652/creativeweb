@@ -1,139 +1,96 @@
 export default function Contact() {
     return (
-        <div className="relative flex items-top justify-center min-h-[700px] bg-black/50 sm:items-center sm:pt-0">
-            <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        <div className="relative flex items-top justify-center min-h-[700px] bg-black/50 sm:items-center sm:pt-0 overflow-hidden">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow" />
+                <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse-slow delay-1000" />
+            </div>
+
+            <div className="max-w-6xl mx-auto sm:px-6 lg:px-8 relative z-10">
                 <div className="mt-8 overflow-hidden">
-                    <div className="grid grid-cols-1 md:grid-cols-2">
-                        <div className="p-6 mr-2 border-2 sm:rounded-lg">
-                            <h1 className="text-3xl sm:text-4xl text-blue-700 font-extrabold tracking-tight">
-                                Get in touch: 
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Cyberpunk-style Contact Info */}
+                        <div className="p-8 border-2 border-blue-400/30 bg-gradient-to-br from-black/40 to-black/20 
+                            transform perspective-1000 hover:rotate-y-12 hover:scale-105 transition-all duration-700 hover:shadow-[0_0_40px_rgba(67,56,202,0.4)]">
+                            <h1 className="text-4xl font-bold mb-6">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 animate-text-flow">
+                                    CONNECT//TRANSMIT
+                                </span>
+                                <div className="h-1 bg-gradient-to-r from-blue-400 to-purple-400 mt-2 w-full animate-laser-line" />
                             </h1>
-                            <p className="text-normal text-lg sm:text-xl font-medium text-purple-400 mt-2">
-                                Fill in the form to start a conversation
-                            </p>
 
-                            <div className="flex items-center mt-8 text-blue-200">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-blue-700"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                    />
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    Acme Inc, Street, State, Postal Code
-                                </div>
-                            </div>
-
-                            <div className="flex items-center mt-4 text-blue-200">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-blue-700"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    +44 1234567890
-                                </div>
-                            </div>
-
-                            <div className="flex items-center mt-2 text-blue-200">
-                                <svg
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.5"
-                                    viewBox="0 0 24 24"
-                                    className="w-8 h-8 text-blue-700"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.5"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    />
-                                </svg>
-                                <div className="ml-4 text-md tracking-wide font-semibold w-40">
-                                    info@acme.org
-                                </div>
+                            <div className="space-y-6">
+                                {[
+                                    {icon: '📍', text: 'Neon District, Cyber City 2077'},
+                                    {icon: '📞', text: '+1-900-CYBER-PUNK'},
+                                    {icon: '📧', text: 'data@cyber.transmit'}
+                                ].map((item, index) => (
+                                    <div key={index} className="flex items-center group">
+                                        <span className="text-2xl mr-4 text-blue-400 animate-bounce">{item.icon}</span>
+                                        <div className="relative overflow-hidden">
+                                            <div className="text-lg font-mono text-purple-300 translate-y-0 group-hover:-translate-y-full transition-transform duration-500">
+                                                {item.text}
+                                            </div>
+                                            <div className="absolute top-full text-lg font-mono text-blue-300 group-hover:-translate-y-full transition-transform duration-500">
+                                                {item.text.replace(/./g, '░')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
-                        <form className="p-6 flex flex-col justify-center border-2 sm:rounded-lg">
-                            <div className="flex flex-col">
-                                <label for="name" className="hidden">
-                                    Full Name
-                                </label>
-                                <input
-                                    type="name"
-                                    name="name"
-                                    id="name"
-                                    placeholder="Full Name"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg  border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                />
-                            </div>
+                        {/* Holographic Form */}
+                        <form className="p-8 bg-black/40 border-2 border-purple-400/30 
+                            transform perspective-1000 hover:-rotate-y-6 hover:scale-105 transition-all duration-700 hover:shadow-[0_0_40px_rgba(168,85,247,0.4)]">
+                            <div className="space-y-6">
+                                {['IDENTITY', 'DATA_NODE', 'FREQUENCY'].map((field, index) => (
+                                    <div key={field} className="relative">
+                                        <input
+                                            type={index === 2 ? 'tel' : index === 1 ? 'email' : 'text'}
+                                            placeholder=" "
+                                            className="w-full px-4 py-3 bg-black/30 border-2 border-blue-400/40 text-purple-100 
+                                                placeholder-transparent focus:border-purple-400 focus:outline-none
+                                                transition-all duration-300 peer"
+                                        />
+                                        <label className="absolute left-3 -top-2 px-1 bg-black/40 text-blue-300 text-sm 
+                                            font-mono transition-all duration-300 peer-placeholder-shown:top-3 
+                                            peer-placeholder-shown:text-base peer-placeholder-shown:text-purple-300/60 
+                                            peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-400">
+                                            {field.replace('_', ' ')}
+                                        </label>
+                                        <div className="absolute inset-0 border-2 border-purple-400/20 pointer-events-none 
+                                            animate-hologram" />
+                                    </div>
+                                ))}
 
-                            <div className="flex flex-col mt-2">
-                                <label for="email" className="hidden">
-                                    Email
-                                </label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="Email"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg  border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                />
+                                <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 
+                                    hover:from-blue-500 hover:to-purple-500 text-white font-bold 
+                                    border-2 border-blue-400/40 relative overflow-hidden
+                                    transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]">
+                                    <span className="relative z-10">INITIATE TRANSMISSION</span>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent 
+                                        animate-scan-line" />
+                                    <div className="absolute inset-0 border-2 border-purple-400/30 animate-hologram" />
+                                </button>
                             </div>
-
-                            <div className="flex flex-col mt-2">
-                                <label for="tel" className="hidden">
-                                    Number
-                                </label>
-                                <input
-                                    type="tel"
-                                    name="tel"
-                                    id="tel"
-                                    placeholder="Telephone Number"
-                                    className="w-100 mt-2 py-3 px-3 rounded-lg  border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
-                                />
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="md:w-32 bg-orange-700 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-orange-600 transition ease-in-out duration-300"
-                            >
-                                Submit
-                            </button>
                         </form>
                     </div>
                 </div>
+            </div>
+
+            {/* Floating glitch elements */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                {[...Array(20)].map((_, i) => (
+                    <div key={i} 
+                        className="absolute w-1 h-1 bg-blue-400/30 animate-float"
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            animationDelay: `${i * 0.5}s`,
+                            animationDuration: `${5 + Math.random() * 10}s`
+                        }} />
+                ))}
             </div>
         </div>
     );
